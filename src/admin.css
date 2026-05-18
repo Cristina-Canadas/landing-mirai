@@ -1,0 +1,3232 @@
+/* ============================================================
+   MIRAI SUITE - Payload Admin Custom Styles (Light Theme)
+   ============================================================ */
+
+:root {
+  /* Typography */
+  --base: 19px;
+  --mirai-font-sans: var(--font-sans, 'Museo Sans', 'Inter', system-ui, -apple-system, sans-serif);
+  --mirai-font-size-body: 16px;
+  --mirai-line-height-body: 1.6;
+
+  /* Brand */
+  --mirai-red: #d72833;
+  --mirai-red-dark: #b91c1c;
+
+  /* Core colors */
+  --mirai-page-bg: #f7f8fb;
+  --mirai-surface-base: #ffffff;
+  --mirai-surface-muted: #f8fafc;
+  --mirai-surface-soft: #f6f7fa;
+  --mirai-input-bg: #f3f5f7;
+  --mirai-text-primary: #111827;
+  --mirai-text-secondary: #475569;
+  --mirai-text-muted: #738092;
+  --mirai-text-control: #334155;
+  --mirai-border-default: #d9dfe8;
+  --mirai-border-soft: #d3dae4;
+  --mirai-border-strong: #c6cfdb;
+  --mirai-border-panel: #d7dee8;
+  --mirai-focus-ring: 0 0 0 3px rgba(215, 40, 51, 0.18);
+
+  /* Light elevation scale */
+  --theme-elevation-0: #ffffff;
+  --theme-elevation-50: #f9fafb;
+  --theme-elevation-100: #f4f6f8;
+  --theme-elevation-150: #edf0f4;
+  --theme-elevation-200: #e5e9ef;
+  --theme-elevation-250: #d9dfe8;
+  --theme-elevation-300: #cfd6e1;
+  --theme-elevation-350: #c1cad7;
+  --theme-elevation-400: #9aa4b2;
+  --theme-elevation-450: #8791a0;
+  --theme-elevation-500: #6b7280;
+  --theme-elevation-600: #4b5563;
+  --theme-elevation-700: #374151;
+  --theme-elevation-800: #1f2937;
+  --theme-elevation-900: #111827;
+  --theme-elevation-950: #0f172a;
+  --theme-elevation-1000: #0b1220;
+
+  --theme-text: #111827;
+  --theme-bg: #ffffff;
+  --theme-input-bg: #f3f5f7;
+  --theme-border-color: rgba(15, 23, 42, 0.16);
+
+  --theme-success-400: #22c55e;
+  --theme-success-500: #16a34a;
+  --theme-error-400: #ef4444;
+  --theme-error-500: #dc2626;
+
+  /* Spacing scale */
+  --mirai-space-1: 0.25rem;
+  --mirai-space-2: 0.5rem;
+  --mirai-space-3: 0.75rem;
+  --mirai-space-4: 1rem;
+  --mirai-space-5: 1.25rem;
+  --mirai-space-6: 1.5rem;
+  --mirai-space-7: 1.75rem;
+  --mirai-space-8: 2rem;
+
+  /* Radius + shadows */
+  --mirai-radius-sm: 0.45rem;
+  --mirai-radius-md: 0.6rem;
+  --mirai-radius-lg: 0.75rem;
+  --mirai-radius-xl: 0.9rem;
+  --mirai-radius-2xl: 1rem;
+  --mirai-radius-pill: 9999px;
+  --mirai-shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+  --mirai-shadow-md: 0 4px 14px rgba(15, 23, 42, 0.04);
+  --mirai-shadow-lg: 0 8px 24px rgba(215, 40, 51, 0.08);
+  --mirai-admin-content-max: 1200px;
+  --mirai-admin-gutter: clamp(1.15rem, 2.6vw, 2.35rem);
+
+  /* Reusable controls */
+  --mirai-list-gutter: var(--mirai-space-4);
+  --mirai-control-height-sm: 34px;
+  --mirai-control-height-md: 38px;
+  --mirai-control-padding-x: 0.92rem;
+  --mirai-control-padding-y: 0.46rem;
+  --mirai-control-gap: 0.52rem;
+  --mirai-chip-padding-x: 0.82rem;
+  --mirai-chip-padding-y: 0.42rem;
+  --mirai-chip-gap: 0.34rem;
+
+  /* Badge system */
+  --mirai-badge-info-bg: rgba(59, 130, 246, 0.1);
+  --mirai-badge-info-text: #3b82f6;
+  --mirai-badge-danger-bg: rgba(199, 24, 39, 0.1);
+  --mirai-badge-danger-text: #c71827;
+  --mirai-badge-success-bg: rgba(16, 185, 129, 0.12);
+  --mirai-badge-success-text: #10b981;
+}
+
+body {
+  font-family: var(--mirai-font-sans) !important;
+  font-size: var(--mirai-font-size-body) !important;
+  line-height: var(--mirai-line-height-body) !important;
+  color: var(--mirai-text-primary) !important;
+  background: var(--mirai-page-bg) !important;
+}
+
+h1 {
+  font-size: 2.1rem !important;
+}
+
+h2 {
+  font-size: 1.55rem !important;
+}
+
+h3 {
+  font-size: 1.22rem !important;
+}
+
+/* Main app shell */
+.template-default,
+.template-default__wrap {
+  background: var(--mirai-page-bg) !important;
+  color: var(--mirai-text-primary) !important;
+}
+
+.app-header {
+  border-bottom: 1px solid var(--mirai-border-default) !important;
+  background: var(--mirai-surface-base) !important;
+}
+
+/* Use the same frontend topbar as admin header */
+.template-default .app-header {
+  display: none !important;
+}
+
+.template-default {
+  --nav-width: 200px !important;
+  --gutter-h: clamp(1.35rem, 3vw, 2.6rem) !important;
+}
+
+.template-default,
+.template-default.template-default--nav-open,
+.template-default.template-default--nav-hydrated,
+.template-default.template-default--nav-hydrated.template-default--nav-open {
+  grid-template-columns: var(--nav-width, 200px) minmax(0, 1fr) !important;
+}
+
+.template-default > .nav {
+  position: fixed !important;
+  top: var(--topbar-height, 72px) !important;
+  left: 0 !important;
+  width: var(--nav-width, 200px) !important;
+  height: calc(100vh - var(--topbar-height, 72px)) !important;
+  min-width: 0 !important;
+  border: none !important;
+  border-right: 1px solid var(--mirai-border-strong) !important;
+  box-shadow: 4px 0 24px rgba(15, 23, 42, 0.09) !important;
+  opacity: 1 !important;
+  overflow: hidden !important;
+  pointer-events: auto !important;
+  background: var(--mirai-surface-base) !important;
+  z-index: 50 !important;
+}
+
+@media (max-width: 768px) {
+  .template-default {
+    --nav-width: 52px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .template-default {
+    --nav-width: 44px !important;
+  }
+}
+
+.template-default > .template-default__nav-overlay {
+  display: none !important;
+}
+
+.template-default__wrap {
+  padding-top: var(--topbar-height, 72px) !important;
+}
+
+.template-default .nav__scroll {
+  padding-top: 0 !important;
+  height: 100% !important;
+  overflow-y: auto !important;
+}
+
+.app-header__wrapper {
+  padding: 0 1.75rem !important;
+}
+
+.app-header__actions-wrapper {
+  margin-right: 0.75rem !important;
+}
+
+.app-header__gradient-placeholder {
+  background: linear-gradient(to right, transparent, #ffffff) !important;
+}
+
+.template-default .topbar-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  margin-left: auto !important;
+}
+
+/* Remove sidebar open/close toggle button from the left edge */
+.template-default__nav-toggler-wrapper,
+.template-default__nav-toggler-container,
+.template-default__nav-toggler,
+.app-header__mobile-nav-toggler {
+  display: none !important;
+}
+
+/* Header breadcrumb + icon area */
+.step-nav {
+  font-size: 1rem !important;
+  gap: 0.65rem !important;
+}
+
+.step-nav::after {
+  background: linear-gradient(to right, transparent, #ffffff) !important;
+}
+
+.step-nav__home {
+  width: auto !important;
+  min-width: 132px !important;
+  height: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.step-nav__home > span {
+  display: flex !important;
+  align-items: center !important;
+  max-width: none !important;
+  overflow: visible !important;
+  white-space: nowrap !important;
+}
+
+.mirai-admin-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transform: translateY(1px);
+}
+
+.mirai-admin-icon__heart {
+  width: auto !important;
+  height: 28px !important;
+}
+
+.mirai-admin-icon__logo {
+  width: auto !important;
+  height: 16px !important;
+}
+
+.mirai-admin-logo {
+  width: auto !important;
+  height: 48px !important;
+}
+
+.mirai-auth-brand {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.mirai-auth-brand__heart {
+  width: auto !important;
+  height: 68px !important;
+}
+
+.mirai-auth-brand__logo {
+  width: auto !important;
+  height: 48px !important;
+}
+
+/* Nav */
+.nav-group {
+  margin-bottom: 0.3rem !important;
+}
+
+/* Remove left sidebar dropdown header/toggle (Collections) */
+.nav .nav-group__toggle,
+.nav .nav-group > button,
+.nav .nav-group > .collapsible__toggle,
+.nav .nav-group .nav-group__indicator,
+.nav .nav-group .nav-group__label {
+  display: none !important;
+}
+
+.nav .nav-group .rah-static,
+.nav .nav-group .collapsible__content {
+  height: auto !important;
+  overflow: visible !important;
+}
+
+.nav .nav-group .rah-static > div,
+.nav .nav-group .collapsible__content > div {
+  display: block !important;
+}
+
+.nav .nav-group .nav-group__content,
+.nav .nav-group .collapsible__content {
+  padding-top: 0 !important;
+}
+
+.nav-group a {
+  display: flex !important;
+  align-items: center !important;
+  padding: 0.72rem 1rem !important;
+  border-radius: 0.6rem !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.18rem !important;
+  text-decoration: none !important;
+  color: #374151 !important;
+  transition: background-color 0.14s ease, color 0.14s ease !important;
+}
+
+.nav-group a:hover {
+  background: #f3f5f8 !important;
+  color: #111827 !important;
+}
+
+.nav-group a.active {
+  background: rgba(215, 40, 51, 0.1) !important;
+  color: var(--mirai-red) !important;
+}
+
+/* Design-system primitives */
+:where(.card, .mirai-ui-card) {
+  border-radius: var(--mirai-radius-2xl) !important;
+  padding: 1.85rem !important;
+  border: 1px solid var(--mirai-border-default) !important;
+  background: var(--mirai-surface-base) !important;
+  box-shadow: var(--mirai-shadow-md) !important;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease !important;
+}
+
+:where(.card, .mirai-ui-card):hover {
+  border-color: rgba(215, 40, 51, 0.45) !important;
+  box-shadow: var(--mirai-shadow-lg) !important;
+}
+
+.card__title {
+  font-size: 1.22rem !important;
+  font-weight: 700 !important;
+}
+
+/* Dashboard action panel */
+.mirai-dashboard-metrics {
+  margin-top: 1rem !important;
+  width: min(100%, 960px) !important;
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
+  gap: 0.9rem !important;
+}
+
+.mirai-dashboard-metric {
+  min-height: 132px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  gap: 0.45rem !important;
+}
+
+.mirai-dashboard-metric__label {
+  margin: 0 !important;
+  font-size: 0.94rem !important;
+  font-weight: 700 !important;
+  color: #475569 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.03em !important;
+}
+
+.mirai-dashboard-metric__value {
+  margin: 0 !important;
+  font-size: clamp(1.75rem, 2.5vw, 2.3rem) !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  color: #0f172a !important;
+}
+
+.mirai-dashboard-metric__meta {
+  margin: 0 !important;
+  font-size: 0.92rem !important;
+  color: #64748b !important;
+}
+
+.mirai-dashboard-actions {
+  margin-top: 1rem !important;
+  width: min(100%, 460px) !important;
+  min-width: 260px !important;
+  max-width: 460px !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1rem !important;
+  border: 1px solid #d9dfe8 !important;
+}
+
+.mirai-dashboard-actions__content {
+  min-width: 0 !important;
+  flex: 1 1 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.45rem !important;
+}
+
+.mirai-dashboard-actions__title {
+  margin: 0 !important;
+  font-size: 1.24rem !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+}
+
+.mirai-dashboard-actions__description {
+  margin: 0 !important;
+  font-size: 1rem !important;
+  color: #4b5563 !important;
+}
+
+.mirai-dashboard-actions__logout.btn {
+  margin: 0 !important;
+  width: fit-content !important;
+  min-height: 46px !important;
+  padding: 0.6rem 1.1rem !important;
+  font-size: 1rem !important;
+  white-space: nowrap !important;
+}
+
+/* Modern admin dashboard home */
+.mirai-admin-dashboard {
+  --mirai-dashboard-gutter: var(--mirai-admin-gutter);
+  width: calc(100% - (2 * var(--mirai-dashboard-gutter))) !important;
+  max-width: none !important;
+  margin: 1.15rem auto 2.8rem !important;
+  padding: 0 !important;
+  color: var(--mirai-text-primary) !important;
+}
+
+.mirai-admin-dashboard__welcome {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1.25rem !important;
+  margin-bottom: 1rem !important;
+  padding: clamp(1.3rem, 3vw, 2rem) !important;
+  border: 1px solid var(--mirai-border-default) !important;
+  border-radius: var(--mirai-radius-2xl) !important;
+  background:
+    radial-gradient(circle at top right, rgba(215, 40, 51, 0.08), transparent 34%),
+    var(--mirai-surface-base) !important;
+  box-shadow: var(--mirai-shadow-md) !important;
+}
+
+.mirai-admin-dashboard__welcome-content {
+  min-width: 0 !important;
+}
+
+.mirai-admin-dashboard__eyebrow {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.45rem !important;
+  margin-bottom: 0.55rem !important;
+  color: var(--mirai-text-muted) !important;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+  text-transform: capitalize !important;
+}
+
+.mirai-admin-dashboard__welcome h1 {
+  margin: 0 !important;
+  color: #0f172a !important;
+  font-size: clamp(1.85rem, 3vw, 2.45rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.08 !important;
+}
+
+.mirai-admin-dashboard__welcome p {
+  max-width: 680px !important;
+  margin: 0.65rem 0 0 !important;
+  color: var(--mirai-text-secondary) !important;
+  font-size: 1rem !important;
+  line-height: 1.55 !important;
+}
+
+.mirai-admin-dashboard__welcome-mark {
+  width: 58px !important;
+  height: 58px !important;
+  flex: 0 0 auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: var(--mirai-radius-xl) !important;
+  color: var(--mirai-red) !important;
+  background: rgba(215, 40, 51, 0.08) !important;
+  border: 1px solid rgba(215, 40, 51, 0.16) !important;
+}
+
+.mirai-admin-dashboard__kpis {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 0.9rem !important;
+  margin-bottom: 0.9rem !important;
+}
+
+.mirai-admin-dashboard__kpi-card,
+.mirai-admin-dashboard__panel {
+  border: 1px solid var(--mirai-border-default) !important;
+  border-radius: var(--mirai-radius-2xl) !important;
+  background: var(--mirai-surface-base) !important;
+  box-shadow: var(--mirai-shadow-sm) !important;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease !important;
+}
+
+.mirai-admin-dashboard__kpi-card:hover,
+.mirai-admin-dashboard__panel:hover {
+  border-color: rgba(215, 40, 51, 0.34) !important;
+  box-shadow: var(--mirai-shadow-md) !important;
+}
+
+.mirai-admin-dashboard__kpi-card {
+  min-height: 154px !important;
+  padding: 1.15rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  gap: 0.9rem !important;
+}
+
+.mirai-admin-dashboard__kpi-topline {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 0.7rem !important;
+}
+
+.mirai-admin-dashboard__icon {
+  width: 38px !important;
+  height: 38px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: var(--mirai-radius-lg) !important;
+  color: var(--mirai-red) !important;
+  background: rgba(215, 40, 51, 0.08) !important;
+}
+
+.mirai-admin-dashboard__trend {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.25rem !important;
+  white-space: nowrap !important;
+  font-size: 0.76rem !important;
+  font-weight: 700 !important;
+}
+
+.mirai-admin-dashboard__trend--up {
+  color: var(--theme-success-500) !important;
+}
+
+.mirai-admin-dashboard__trend--down {
+  color: var(--theme-error-500) !important;
+}
+
+.mirai-admin-dashboard__kpi-card h2 {
+  margin: 0 !important;
+  color: var(--mirai-text-secondary) !important;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+}
+
+.mirai-admin-dashboard__kpi-card p {
+  margin: 0 !important;
+  color: #0f172a !important;
+  font-size: clamp(1.65rem, 2.2vw, 2.1rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.05 !important;
+  overflow-wrap: anywhere !important;
+}
+
+.mirai-admin-dashboard__grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr) !important;
+  gap: 0.9rem !important;
+  margin-top: 0.9rem !important;
+}
+
+.mirai-admin-dashboard__grid--main {
+  align-items: stretch !important;
+}
+
+.mirai-admin-dashboard__panel {
+  padding: clamp(1.1rem, 2.3vw, 1.45rem) !important;
+  overflow: hidden !important;
+}
+
+.mirai-admin-dashboard__panel--chart {
+  min-height: 390px !important;
+}
+
+.mirai-admin-dashboard__panel-header {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 1rem !important;
+  margin-bottom: 1.1rem !important;
+}
+
+.mirai-admin-dashboard__panel-header h2 {
+  margin: 0 !important;
+  color: #0f172a !important;
+  font-size: 1.08rem !important;
+  font-weight: 800 !important;
+}
+
+.mirai-admin-dashboard__panel-header p {
+  margin: 0.24rem 0 0 !important;
+  color: var(--mirai-text-muted) !important;
+  font-size: 0.9rem !important;
+}
+
+.mirai-admin-dashboard__legend {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.8rem !important;
+  color: var(--mirai-text-muted) !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+}
+
+.mirai-admin-dashboard__legend span {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.35rem !important;
+}
+
+.mirai-admin-dashboard__dot {
+  width: 8px !important;
+  height: 8px !important;
+  display: inline-block !important;
+  border-radius: var(--mirai-radius-pill) !important;
+}
+
+.mirai-admin-dashboard__dot--visits {
+  background: var(--mirai-red) !important;
+}
+
+.mirai-admin-dashboard__dot--clicks {
+  background: #64748b !important;
+}
+
+.mirai-admin-dashboard__chart {
+  min-height: 284px !important;
+  display: grid !important;
+  grid-template-rows: minmax(220px, 1fr) auto !important;
+  gap: 0.65rem !important;
+}
+
+.mirai-admin-dashboard__chart svg {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 230px !important;
+}
+
+.mirai-admin-dashboard__grid-lines {
+  fill: none !important;
+  stroke: #e8edf3 !important;
+  stroke-width: 1 !important;
+}
+
+.mirai-admin-dashboard__line {
+  fill: none !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+  stroke-width: 4 !important;
+}
+
+.mirai-admin-dashboard__line--visits {
+  stroke: var(--mirai-red) !important;
+}
+
+.mirai-admin-dashboard__line--clicks {
+  stroke: #64748b !important;
+  stroke-width: 3 !important;
+}
+
+.mirai-admin-dashboard__chart-labels {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr) !important;
+  gap: 0.3rem !important;
+  color: var(--mirai-text-muted) !important;
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+}
+
+.mirai-admin-dashboard__tool-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.92rem !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  list-style: none !important;
+}
+
+.mirai-admin-dashboard__tool-item {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.5rem !important;
+}
+
+.mirai-admin-dashboard__tool-row {
+  display: grid !important;
+  grid-template-columns: auto minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  gap: 0.65rem !important;
+}
+
+.mirai-admin-dashboard__tool-rank {
+  width: 34px !important;
+  height: 30px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: var(--mirai-radius-md) !important;
+  background: var(--mirai-surface-muted) !important;
+  color: var(--mirai-text-muted) !important;
+  font-size: 0.82rem !important;
+  font-weight: 800 !important;
+}
+
+.mirai-admin-dashboard__tool-name {
+  min-width: 0 !important;
+  color: #0f172a !important;
+  font-size: 0.94rem !important;
+  font-weight: 800 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.mirai-admin-dashboard__tool-clicks {
+  color: var(--mirai-text-muted) !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+}
+
+.mirai-admin-dashboard__progress {
+  height: 7px !important;
+  overflow: hidden !important;
+  border-radius: var(--mirai-radius-pill) !important;
+  background: #edf1f6 !important;
+}
+
+.mirai-admin-dashboard__progress span {
+  display: block !important;
+  height: 100% !important;
+  border-radius: inherit !important;
+  background: linear-gradient(90deg, var(--mirai-red), #ef6b73) !important;
+}
+
+.mirai-admin-dashboard__activity-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.78rem !important;
+}
+
+.mirai-admin-dashboard__activity-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  padding: 0.72rem !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--mirai-radius-xl) !important;
+  background: var(--mirai-surface-muted) !important;
+}
+
+.mirai-admin-dashboard__activity-icon {
+  width: 36px !important;
+  height: 36px !important;
+  flex: 0 0 auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: var(--mirai-radius-lg) !important;
+  color: var(--mirai-red) !important;
+  background: #ffffff !important;
+  border: 1px solid var(--mirai-border-soft) !important;
+}
+
+.mirai-admin-dashboard__activity-item p {
+  margin: 0 !important;
+  color: #0f172a !important;
+  font-size: 0.94rem !important;
+  font-weight: 800 !important;
+}
+
+.mirai-admin-dashboard__activity-item span {
+  color: var(--mirai-text-muted) !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+}
+
+.mirai-admin-dashboard__quick-actions {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 0.75rem !important;
+}
+
+.mirai-admin-dashboard__quick-action {
+  min-height: 86px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  gap: 0.65rem !important;
+  padding: 0.85rem !important;
+  border: 1px solid var(--mirai-border-default) !important;
+  border-radius: var(--mirai-radius-xl) !important;
+  background: var(--mirai-surface-muted) !important;
+  color: #0f172a !important;
+  font-size: 0.92rem !important;
+  font-weight: 800 !important;
+  text-decoration: none !important;
+  transition: background-color 0.16s ease, border-color 0.16s ease, color 0.16s ease, transform 0.16s ease !important;
+}
+
+.mirai-admin-dashboard__quick-action span {
+  width: 36px !important;
+  height: 36px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: var(--mirai-radius-lg) !important;
+  background: #ffffff !important;
+  color: var(--mirai-red) !important;
+  border: 1px solid var(--mirai-border-soft) !important;
+}
+
+.mirai-admin-dashboard__quick-action:hover,
+.mirai-admin-dashboard__quick-action:focus-visible {
+  border-color: rgba(215, 40, 51, 0.34) !important;
+  background: #ffffff !important;
+  color: var(--mirai-red) !important;
+  transform: translateY(-1px) !important;
+  outline: none !important;
+}
+
+.mirai-admin-dashboard__quick-action:focus-visible {
+  box-shadow: var(--mirai-focus-ring) !important;
+}
+
+@media (max-width: 1120px) {
+  .mirai-admin-dashboard__kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .mirai-admin-dashboard__grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Tables / lists */
+.collection-list__header,
+.list-header {
+  padding: 0 1.85rem 1.85rem 3rem !important;
+}
+
+.table {
+  border-radius: 1rem !important;
+  overflow: hidden !important;
+  border: 1px solid #d9dfe8 !important;
+  background: #ffffff !important;
+}
+
+.table th,
+.table td {
+  padding: 1.08rem 1.3rem !important;
+}
+
+.table thead th {
+  font-size: 0.86rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+  text-transform: uppercase !important;
+  background: #f6f7fa !important;
+  border-bottom: 1px solid #d9dfe8 !important;
+  color: #4b5563 !important;
+}
+
+.table td {
+  font-size: 1rem !important;
+  color: #111827 !important;
+  border-bottom: 1px solid #eceff4 !important;
+}
+
+.table tbody tr:nth-child(odd) {
+  background: #fcfcfd !important;
+}
+
+.table tbody tr:hover td {
+  background: #f8fafc !important;
+}
+
+/* Reusable button base */
+:where(.btn, .mirai-ui-button) {
+  border-radius: var(--mirai-radius-lg) !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+}
+
+.btn--style-primary {
+  --bg-color: var(--mirai-red) !important;
+  --color: #ffffff !important;
+  --hover-bg: var(--mirai-red-dark) !important;
+  background: var(--mirai-red) !important;
+  border-color: var(--mirai-red) !important;
+  color: #ffffff !important;
+}
+
+.btn--style-primary:hover {
+  background: var(--mirai-red-dark) !important;
+  border-color: var(--mirai-red-dark) !important;
+}
+
+/* Form fields */
+.field-type {
+  margin-bottom: 1.8rem !important;
+}
+
+.field-label {
+  font-size: 0.94rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 0.62rem !important;
+  color: #1f2937 !important;
+}
+
+.field-description {
+  font-size: 0.86rem !important;
+  margin-top: 0.45rem !important;
+  color: #6b7280 !important;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='number'],
+input[type='password'],
+input[type='search'],
+input[type='url'],
+textarea,
+select {
+  border-radius: 0.68rem !important;
+  padding: 0.78rem 1rem !important;
+  font-size: 1rem !important;
+  border: 1px solid #cfd6df !important;
+  background: #f3f5f7 !important;
+  color: #111827 !important;
+  min-height: 48px !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #6b7280 !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--mirai-red) !important;
+  box-shadow: 0 0 0 3px rgba(215, 40, 51, 0.18) !important;
+  outline: none !important;
+}
+
+/* Keep Payload react-select controls aligned with the design system */
+.react-select .rs__control {
+  min-height: 48px !important;
+  padding: 0.45rem 0.75rem !important;
+  border-radius: 0.68rem !important;
+  border: 1px solid #cfd6df !important;
+  background: #f3f5f7 !important;
+}
+
+.react-select .rs__menu,
+.rs__menu-portal .rs__menu {
+  z-index: 9999 !important;
+  position: absolute !important;
+  background: #ffffff !important;
+  border: 1px solid #cfd6df !important;
+  border-radius: 0.68rem !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14) !important;
+  overflow: hidden !important;
+}
+
+.react-select .rs__menu-list,
+.rs__menu-portal .rs__menu-list {
+  background: #ffffff !important;
+  padding: 0.35rem !important;
+}
+
+.react-select .rs__option,
+.rs__menu-portal .rs__option {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border-radius: 0.45rem !important;
+  padding: 0.5rem 0.75rem !important;
+}
+
+.react-select .rs__option--is-focused,
+.rs__menu-portal .rs__option--is-focused {
+  background: #f3f5f7 !important;
+  color: #0f172a !important;
+}
+
+.react-select .rs__option--is-selected,
+.rs__menu-portal .rs__option--is-selected {
+  background: rgba(215, 40, 51, 0.08) !important;
+  color: #d72833 !important;
+}
+
+/* Raise stacking context of relationship fields so dropdown floats above siblings */
+.field-type.relationship {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.field-type.relationship:focus-within {
+  z-index: 200 !important;
+}
+
+.rs__menu-portal {
+  z-index: 9999 !important;
+}
+
+.react-select .rs__value-container {
+  padding: 0 !important;
+}
+
+.react-select .rs__input-container {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.react-select .rs__input,
+.react-select .rs__input input,
+.react-select .rs__input-container input[type='text'] {
+  min-height: 0 !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.react-select .rs__input input:focus,
+.react-select .rs__input-container input:focus {
+  border: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+body.mirai-tools-create .field-type.relationship .relationship__wrap,
+body.mirai-tools-edit .field-type.relationship .relationship__wrap {
+  --mirai-category-control-height: 54px;
+  display: flex !important;
+  align-items: stretch !important;
+  gap: 0 !important;
+  width: 100% !important;
+  min-height: var(--mirai-category-control-height) !important;
+  border-radius: var(--mirai-radius-lg) !important;
+  filter: drop-shadow(0 1px 2px rgba(15, 23, 42, 0.05));
+}
+
+body.mirai-tools-create .field-type.relationship .relationship__wrap:focus-within,
+body.mirai-tools-edit .field-type.relationship .relationship__wrap:focus-within {
+  filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0)) drop-shadow(0 0 0.45rem rgba(215, 40, 51, 0.13));
+}
+
+body.mirai-tools-create .field-type.relationship .relationship__wrap > .react-select,
+body.mirai-tools-edit .field-type.relationship .relationship__wrap > .react-select {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+}
+
+body.mirai-tools-create .field-type.relationship .relationship__wrap .react-select .rs__control,
+body.mirai-tools-edit .field-type.relationship .relationship__wrap .react-select .rs__control {
+  min-height: var(--mirai-category-control-height) !important;
+  height: 100% !important;
+  border-radius: var(--mirai-radius-lg) 0 0 var(--mirai-radius-lg) !important;
+  border-right-color: transparent !important;
+  box-shadow: none !important;
+}
+
+body.mirai-tools-create .field-type.relationship .relationship__wrap .react-select .rs__control:hover,
+body.mirai-tools-edit .field-type.relationship .relationship__wrap .react-select .rs__control:hover,
+body.mirai-tools-create .field-type.relationship .relationship__wrap .react-select .rs__control--is-focused,
+body.mirai-tools-edit .field-type.relationship .relationship__wrap .react-select .rs__control--is-focused {
+  border-color: rgba(215, 40, 51, 0.34) !important;
+  border-right-color: transparent !important;
+}
+
+body.mirai-tools-create .field-type.relationship .relationship-add-new,
+body.mirai-tools-edit .field-type.relationship .relationship-add-new {
+  display: flex !important;
+  flex: 0 0 62px !important;
+  min-width: 62px !important;
+  margin-left: -1px !important;
+}
+
+body.mirai-tools-create .field-type.relationship .relationship-add-new__add-button,
+body.mirai-tools-edit .field-type.relationship .relationship-add-new__add-button {
+  width: 62px !important;
+  min-width: 62px !important;
+  min-height: var(--mirai-category-control-height) !important;
+  height: 100% !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  border: 1px solid var(--mirai-border-soft) !important;
+  border-left-color: rgba(148, 163, 184, 0.24) !important;
+  border-radius: 0 var(--mirai-radius-lg) var(--mirai-radius-lg) 0 !important;
+  background: linear-gradient(180deg, #ffffff 0%, #f6f8fb 100%) !important;
+  color: var(--mirai-text-secondary) !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  transition:
+    background-color 0.16s ease,
+    border-color 0.16s ease,
+    color 0.16s ease,
+    box-shadow 0.16s ease !important;
+}
+
+body.mirai-tools-create .field-type.relationship .relationship-add-new__add-button:hover,
+body.mirai-tools-edit .field-type.relationship .relationship-add-new__add-button:hover,
+body.mirai-tools-create .field-type.relationship .relationship-add-new__add-button:focus-visible,
+body.mirai-tools-edit .field-type.relationship .relationship-add-new__add-button:focus-visible {
+  border-color: rgba(215, 40, 51, 0.34) !important;
+  background: linear-gradient(180deg, #ffffff 0%, rgba(215, 40, 51, 0.06) 100%) !important;
+  color: var(--mirai-red) !important;
+  box-shadow: inset 0 0 0 1px rgba(215, 40, 51, 0.08) !important;
+  outline: 3px solid rgba(215, 40, 51, 0.13) !important;
+  outline-offset: -3px !important;
+}
+
+body.mirai-tools-create .field-type.relationship .relationship-add-new__add-button svg,
+body.mirai-tools-edit .field-type.relationship .relationship-add-new__add-button svg {
+  width: 18px !important;
+  height: 18px !important;
+  stroke-width: 2px !important;
+}
+
+/* Remove text label from the × remove button, keep only the icon */
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .file-field__remove .btn__label,
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .file-field__remove .tooltip {
+  display: none !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .file-field__remove {
+  position: absolute !important;
+  right: 2.8rem !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 50% !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #94a3b8 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: color 0.15s, background 0.15s !important;
+  z-index: 2 !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .file-field__remove:hover {
+  color: #d72833 !important;
+  background: rgba(215, 40, 51, 0.08) !important;
+}
+
+/* Make the relationship wrapper position:relative so the button can be absolute */
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .field-type.relationship {
+  position: relative !important;
+}
+
+@media (max-width: 640px) {
+  body.mirai-tools-create .field-type.relationship .relationship__wrap,
+  body.mirai-tools-edit .field-type.relationship .relationship__wrap {
+    --mirai-category-control-height: 52px;
+  }
+
+  body.mirai-tools-create .field-type.relationship .relationship-add-new,
+  body.mirai-tools-edit .field-type.relationship .relationship-add-new,
+  body.mirai-tools-create .field-type.relationship .relationship-add-new__add-button,
+  body.mirai-tools-edit .field-type.relationship .relationship-add-new__add-button {
+    flex-basis: 54px !important;
+    min-width: 54px !important;
+    width: 54px !important;
+  }
+}
+
+/* Relationship create drawer in Tools: compact, clean panel */
+body.mirai-tools-create .drawer,
+body.mirai-tools-edit .drawer {
+  --mirai-tools-drawer-gap: clamp(0.85rem, 2vw, 1.25rem);
+  --mirai-tools-drawer-top: max(calc(var(--topbar-height, 72px) + 1.25rem), clamp(6.25rem, 12vh, 8rem));
+  --mirai-tools-drawer-width: min(460px, calc(100vw - (2 * var(--mirai-tools-drawer-gap))));
+  --mirai-tools-drawer-max-height: min(500px, calc(100dvh - var(--mirai-tools-drawer-top) - var(--mirai-tools-drawer-gap)));
+  inset: var(--mirai-tools-drawer-top) auto auto 50% !important;
+  transform: translateX(-50%) !important;
+  width: var(--mirai-tools-drawer-width) !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: var(--mirai-tools-drawer-max-height) !important;
+  overflow: visible !important;
+  align-items: flex-start !important;
+}
+
+body.mirai-tools-create .drawer__blur-bg,
+body.mirai-tools-edit .drawer__blur-bg {
+  display: none !important;
+}
+
+body.mirai-tools-create .drawer__blur-bg::before,
+body.mirai-tools-create .drawer__blur-bg::after,
+body.mirai-tools-edit .drawer__blur-bg::before,
+body.mirai-tools-edit .drawer__blur-bg::after {
+  display: none !important;
+}
+
+body.mirai-tools-create .drawer__content,
+body.mirai-tools-edit .drawer__content {
+  flex: 0 0 var(--mirai-tools-drawer-width) !important;
+  width: var(--mirai-tools-drawer-width) !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: var(--mirai-tools-drawer-max-height) !important;
+  background: #ffffff !important;
+  border: 1px solid var(--mirai-border-default) !important;
+  border-radius: var(--mirai-radius-lg) !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+}
+
+body.mirai-tools-create .drawer__content-children,
+body.mirai-tools-edit .drawer__content-children {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: var(--mirai-tools-drawer-max-height) !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain !important;
+}
+
+body.mirai-tools-create .drawer__close,
+body.mirai-tools-edit .drawer__close {
+  position: absolute !important;
+  top: 0.75rem !important;
+  right: 0.75rem !important;
+  z-index: 5 !important;
+  flex: 0 0 auto !important;
+  width: 2rem !important;
+  height: 2rem !important;
+  min-height: 0 !important;
+  border-radius: var(--mirai-radius-md) !important;
+  background: #ffffff !important;
+  color: #0f172a !important;
+  opacity: 1 !important;
+  box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.3) !important;
+  text-indent: 0 !important;
+  transition:
+    background-color 0.16s ease,
+    color 0.16s ease,
+    box-shadow 0.16s ease !important;
+}
+
+body.mirai-tools-create .drawer__close::before,
+body.mirai-tools-edit .drawer__close::before {
+  content: "x";
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 1.1rem;
+  line-height: 1;
+  font-weight: 500;
+}
+
+body.mirai-tools-create .drawer__close:hover,
+body.mirai-tools-create .drawer__close:focus-visible,
+body.mirai-tools-edit .drawer__close:hover,
+body.mirai-tools-edit .drawer__close:focus-visible {
+  background: rgba(215, 40, 51, 0.08) !important;
+  color: var(--mirai-red) !important;
+  box-shadow: inset 0 0 0 1px rgba(215, 40, 51, 0.22), 0 0 0 3px rgba(215, 40, 51, 0.12) !important;
+  outline: none !important;
+}
+
+body.mirai-tools-create .drawer .doc-drawer__header,
+body.mirai-tools-edit .drawer .doc-drawer__header {
+  display: none !important;
+}
+
+body.mirai-tools-create .drawer .doc-drawer__header-content,
+body.mirai-tools-edit .drawer .doc-drawer__header-content {
+  align-items: center !important;
+}
+
+body.mirai-tools-create .drawer .doc-drawer__header-close,
+body.mirai-tools-edit .drawer .doc-drawer__header-close {
+  display: none !important;
+}
+
+body.mirai-tools-create .drawer .doc-drawer__header-text,
+body.mirai-tools-edit .drawer .doc-drawer__header-text {
+  font-size: 1rem !important;
+  line-height: 1.25 !important;
+  color: #0f172a !important;
+}
+
+body.mirai-tools-create .drawer .mirai-doc-create-header,
+body.mirai-tools-edit .drawer .mirai-doc-create-header,
+body.mirai-tools-create .drawer .header--doc,
+body.mirai-tools-edit .drawer .header--doc,
+body.mirai-tools-create .drawer .doc-controls,
+body.mirai-tools-edit .drawer .doc-controls {
+  display: none !important;
+}
+
+body.mirai-tools-create .drawer .gutter,
+body.mirai-tools-create .drawer .gutter--left,
+body.mirai-tools-create .drawer .gutter--right,
+body.mirai-tools-edit .drawer .gutter,
+body.mirai-tools-edit .drawer .gutter--left,
+body.mirai-tools-edit .drawer .gutter--right {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+body.mirai-tools-create .drawer hr,
+body.mirai-tools-edit .drawer hr {
+  display: none !important;
+}
+
+body.mirai-tools-create .drawer .doc-controls,
+body.mirai-tools-create .drawer .doc-controls *,
+body.mirai-tools-edit .drawer .doc-controls,
+body.mirai-tools-edit .drawer .doc-controls *,
+body.mirai-tools-create .drawer .gutter,
+body.mirai-tools-edit .drawer .gutter,
+body.mirai-tools-edit .drawer .gutter {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
+
+body.mirai-tools-create .drawer .collection-edit,
+body.mirai-tools-edit .drawer .collection-edit {
+  display: block !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin-top: 0 !important;
+  padding: 0 !important;
+}
+
+body.mirai-tools-create .drawer .collection-edit__form,
+body.mirai-tools-edit .drawer .collection-edit__form {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  gap: 0.75rem !important;
+  padding: 2.75rem 1rem 0.9rem !important;
+  max-width: none !important;
+}
+
+body.mirai-tools-create .drawer .document-fields,
+body.mirai-tools-edit .drawer .document-fields {
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  gap: 0 !important;
+}
+
+body.mirai-tools-create .drawer .document-fields__main,
+body.mirai-tools-edit .drawer .document-fields__main {
+  height: auto !important;
+  min-height: 0 !important;
+  gap: 0 !important;
+}
+
+body.mirai-tools-create .drawer .field-type,
+body.mirai-tools-edit .drawer .field-type {
+  margin-bottom: 0.78rem !important;
+}
+
+body.mirai-tools-create .drawer .field-label,
+body.mirai-tools-edit .drawer .field-label {
+  margin-bottom: 0.34rem !important;
+  font-size: 0.82rem !important;
+}
+
+body.mirai-tools-create .drawer .field-description,
+body.mirai-tools-edit .drawer .field-description {
+  margin-top: 0.3rem !important;
+  font-size: 0.76rem !important;
+  line-height: 1.35 !important;
+}
+
+body.mirai-tools-create .drawer input[type='text'],
+body.mirai-tools-create .drawer textarea,
+body.mirai-tools-create .drawer select,
+body.mirai-tools-edit .drawer input[type='text'],
+body.mirai-tools-edit .drawer textarea,
+body.mirai-tools-edit .drawer select {
+  min-height: 40px !important;
+  padding: 0.55rem 0.72rem !important;
+  font-size: 0.88rem !important;
+  border-radius: var(--mirai-radius-md) !important;
+}
+
+body.mirai-tools-create .drawer .react-select .rs__control,
+body.mirai-tools-edit .drawer .react-select .rs__control {
+  min-height: 40px !important;
+  padding: 0.28rem 0.55rem !important;
+  border-radius: var(--mirai-radius-md) !important;
+}
+
+body.mirai-tools-create .drawer .field-type.text > button,
+body.mirai-tools-create .drawer .field-type.select > button,
+body.mirai-tools-edit .drawer .field-type.text > button,
+body.mirai-tools-edit .drawer .field-type.select > button {
+  min-height: 40px !important;
+  padding: 0 0.72rem !important;
+  border-radius: var(--mirai-radius-md) !important;
+  box-shadow: none !important;
+}
+
+body.mirai-tools-create .drawer .field-type.text,
+body.mirai-tools-create .drawer .field-type.select,
+body.mirai-tools-edit .drawer .field-type.text,
+body.mirai-tools-edit .drawer .field-type.select {
+  margin-bottom: 0.78rem !important;
+}
+
+@media (max-width: 768px) {
+  body.mirai-tools-create .drawer,
+  body.mirai-tools-edit .drawer {
+    --mirai-tools-drawer-gap: 0.75rem;
+    --mirai-tools-drawer-top: calc(var(--topbar-height, 72px) + 0.85rem);
+    width: auto !important;
+    left: var(--mirai-tools-drawer-gap) !important;
+    right: var(--mirai-tools-drawer-gap) !important;
+    transform: none !important;
+  }
+}
+
+@media (max-height: 640px) {
+  body.mirai-tools-create .drawer,
+  body.mirai-tools-edit .drawer {
+    --mirai-tools-drawer-top: calc(var(--topbar-height, 56px) + 0.65rem);
+    --mirai-tools-drawer-gap: 0.5rem;
+    --mirai-tools-drawer-max-height: calc(100dvh - var(--mirai-tools-drawer-top) - var(--mirai-tools-drawer-gap));
+  }
+}
+
+/* Textareas explicitly in light gray */
+.field-type.textarea textarea,
+textarea {
+  background: var(--mirai-input-bg) !important;
+  color: var(--mirai-text-primary) !important;
+  border-color: #cfd6df !important;
+}
+
+/* Localizer */
+.localizer {
+  border-radius: 0.66rem !important;
+  border: 1px solid #d3d9e2 !important;
+  background: transparent !important;
+  padding: 0.36rem !important;
+  gap: 0.35rem !important;
+}
+
+.localizer button {
+  border-radius: 0.52rem !important;
+  padding: 0.5rem 0.9rem !important;
+  font-size: 0.92rem !important;
+  font-weight: 600 !important;
+}
+
+.localizer button[aria-pressed='true'],
+.localizer button.active--locale {
+  background: var(--mirai-red) !important;
+  color: #ffffff !important;
+}
+
+/* Controls and spacing */
+.list-controls {
+  padding: 1rem 1.75rem !important;
+  gap: 0.9rem !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  background: transparent !important;
+}
+
+.search-filter__input {
+  border-radius: 0.66rem !important;
+  min-height: 44px !important;
+}
+
+/* ------------------------------------------------------------
+   List View Polish (Tools / Users / Media)
+   ------------------------------------------------------------ */
+.collection-list {
+  --mirai-list-gutter: var(--mirai-admin-gutter);
+  --mirai-list-section-gap: 0.95rem;
+  --mirai-list-bottom-space: 1.6rem;
+}
+
+.collection-list__wrap {
+  padding-bottom: var(--mirai-list-bottom-space) !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.collection-list__wrap.gutter--left {
+  padding-left: 0 !important;
+}
+
+.collection-list__wrap.gutter--right {
+  padding-right: 0 !important;
+}
+
+.collection-list > .mirai-list-breadcrumbs-wrap {
+  padding-left: var(--mirai-list-gutter) !important;
+  padding-right: var(--mirai-list-gutter) !important;
+  margin-top: 1.15rem !important;
+  margin-bottom: 0.55rem !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.mirai-list-breadcrumbs {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.45rem !important;
+  font-size: 0.88rem !important;
+  color: #64748b !important;
+}
+
+.mirai-list-breadcrumbs__link {
+  color: #64748b !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+}
+
+.mirai-list-breadcrumbs__link:hover,
+.mirai-list-breadcrumbs__link:focus-visible {
+  color: #0f172a !important;
+  text-decoration: underline !important;
+}
+
+.mirai-list-breadcrumbs__sep {
+  color: #94a3b8 !important;
+}
+
+.mirai-list-breadcrumbs__current {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+.collection-list__header,
+.collection-list .list-header {
+  padding-left: var(--mirai-list-gutter) !important;
+  padding-right: var(--mirai-list-gutter) !important;
+}
+
+.collection-list .list-controls {
+  margin-top: 0.35rem !important;
+  margin-inline: var(--mirai-list-gutter) !important;
+  border: 1px solid var(--mirai-border-default) !important;
+  border-radius: var(--mirai-radius-xl) !important;
+  padding: 0.8rem 1rem !important;
+  box-shadow: var(--mirai-shadow-sm) !important;
+}
+
+.collection-list .search-bar {
+  background: var(--mirai-surface-muted) !important;
+  border: 1px solid var(--mirai-border-soft) !important;
+  border-radius: var(--mirai-radius-lg) !important;
+  min-height: 48px !important;
+}
+
+.collection-list .search-bar .icon--search {
+  color: var(--mirai-text-muted) !important;
+  width: 36px !important;
+}
+
+.collection-list .search-bar .search-filter__input {
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  min-height: 48px !important;
+  padding-inline-start: 2.4rem !important;
+  padding-inline-end: 0.9rem !important;
+  font-size: 0.98rem !important;
+}
+
+.collection-list .search-bar .search-filter__input::placeholder {
+  color: var(--mirai-text-muted) !important;
+}
+
+.collection-list .search-bar .search-filter__input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.collection-list .search-bar__actions {
+  padding: 0.4rem !important;
+  gap: var(--mirai-control-gap) !important;
+}
+
+:where(.collection-list .search-bar__actions .pill, .mirai-ui-pill) {
+  margin: 0 !important;
+  min-height: var(--mirai-control-height-sm) !important;
+  border-radius: var(--mirai-radius-md) !important;
+  border: 1px solid var(--mirai-border-soft) !important;
+  background: var(--mirai-surface-base) !important;
+  color: var(--mirai-text-control) !important;
+  font-size: 0.86rem !important;
+  font-weight: 600 !important;
+}
+
+:where(.collection-list .search-bar__actions .pill, .mirai-ui-pill):hover,
+:where(.collection-list .search-bar__actions .pill, .mirai-ui-pill):focus-visible {
+  border-color: var(--mirai-border-strong) !important;
+  background: var(--mirai-surface-muted) !important;
+}
+
+/* Hide Filters button */
+.collection-list .search-bar__actions #toggle-list-filters {
+  display: none !important;
+}
+
+/* Shared list-control buttons for Tools / Users / Media */
+.collection-list .search-bar__actions #toggle-list-columns,
+.collection-list .search-bar__actions #toggle-list-filters {
+  --pill-padding-inline-start: var(--mirai-control-padding-x) !important;
+  --pill-padding-inline-end: var(--mirai-control-padding-x) !important;
+  min-height: var(--mirai-control-height-md) !important;
+  padding: var(--mirai-control-padding-y) var(--mirai-control-padding-x) !important;
+  border-radius: var(--mirai-radius-md) !important;
+  gap: 0.46rem !important;
+  font-size: 0.9rem !important;
+  line-height: 1.15 !important;
+}
+
+.collection-list .search-bar__actions #toggle-list-columns .pill__label,
+.collection-list .search-bar__actions #toggle-list-filters .pill__label {
+  padding-inline: 0.12rem !important;
+}
+
+/* Shared spacing in Columns / Filters drawers */
+.collection-list .list-controls__columns,
+.collection-list .list-controls__where {
+  margin-top: 0.6rem !important;
+}
+
+.collection-list .list-controls__columns .pill-selector,
+.collection-list .list-controls__where .where-builder {
+  padding: 1rem 1.25rem !important;
+  gap: 0.75rem !important;
+  border-radius: var(--mirai-radius-lg) !important;
+  background: var(--mirai-surface-muted) !important;
+  border: 1px solid var(--mirai-border-panel) !important;
+}
+
+.collection-list .list-controls__columns .pill-selector .pill-selector__pill.pill {
+  --pill-padding-inline-start: var(--mirai-chip-padding-x) !important;
+  --pill-padding-inline-end: var(--mirai-chip-padding-x) !important;
+  min-height: var(--mirai-control-height-sm) !important;
+  padding: var(--mirai-chip-padding-y) var(--mirai-chip-padding-x) !important;
+  margin: 0 !important;
+  gap: var(--mirai-chip-gap) !important;
+  border-radius: var(--mirai-radius-sm) !important;
+}
+
+.collection-list .list-controls__columns .pill-selector .pill-selector__pill .pill__label {
+  padding-inline: 0.08rem !important;
+}
+
+.collection-list .list-controls__where .where-builder {
+  padding: 0.95rem 1.15rem !important;
+  gap: 0.7rem !important;
+  border-radius: var(--mirai-radius-lg) !important;
+  background: var(--mirai-surface-muted) !important;
+  border: 1px solid var(--mirai-border-panel) !important;
+}
+
+.collection-list .list-controls__where .where-builder__or-filters,
+.collection-list .list-controls__where .where-builder__and-filters,
+.collection-list .list-controls__where .where-builder__or-filters li,
+.collection-list .list-controls__where .where-builder__and-filters li {
+  gap: 0.62rem !important;
+}
+
+.collection-list .table {
+  border-top-left-radius: 0.9rem !important;
+  border-top-right-radius: 0.9rem !important;
+}
+
+.collection-list .collection-list__tables {
+  padding-inline: var(--mirai-list-gutter) !important;
+}
+
+/* Keep a clear separation between filters and result rows (Tools / Users / Media) */
+.collection-list .list-controls + .collection-list__tables,
+.collection-list .list-controls + .table {
+  margin-top: var(--mirai-list-section-gap) !important;
+}
+
+.collection-list .collection-list__tables .table {
+  width: 100% !important;
+}
+
+/* Keep "No Results" aligned with the same left/right gutter as list content */
+.collection-list .no-results {
+  margin-inline: var(--mirai-list-gutter) !important;
+}
+
+.collection-list .no-results__actions .btn {
+  --bg-color: var(--mirai-red) !important;
+  --color: #ffffff !important;
+  --hover-bg: var(--mirai-red-dark) !important;
+  --hover-color: #ffffff !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  margin: 0 !important;
+  min-height: 40px !important;
+  padding: 0.45rem 0.95rem !important;
+  border-radius: var(--mirai-radius-lg) !important;
+  border: 1px solid var(--mirai-red) !important;
+  background: var(--mirai-red) !important;
+  color: #ffffff !important;
+  font-size: 0.94rem !important;
+  font-weight: 700 !important;
+  line-height: 1.1 !important;
+}
+
+.collection-list .no-results__actions .btn:hover,
+.collection-list .no-results__actions .btn:focus-visible {
+  background: var(--mirai-red-dark) !important;
+  border-color: var(--mirai-red-dark) !important;
+  color: #ffffff !important;
+}
+
+.collection-list .table thead th {
+  height: 46px !important;
+  vertical-align: middle !important;
+}
+
+.collection-list .table td {
+  height: 46px !important;
+  vertical-align: middle !important;
+}
+
+.collection-list .cell-status {
+  white-space: nowrap !important;
+}
+
+:where(.mirai-status-badge, .mirai-ui-badge) {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 0.6875rem !important;
+  font-weight: 600 !important;
+  line-height: 1.1 !important;
+  padding: 0.1875rem 0.5rem !important;
+  border-radius: var(--mirai-radius-pill) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  white-space: nowrap !important;
+}
+
+.mirai-status-badge--coming_soon,
+.mirai-status-badge--coming-soon,
+.mirai-ui-badge--info {
+  background: var(--mirai-badge-info-bg) !important;
+  color: var(--mirai-badge-info-text) !important;
+}
+
+.mirai-status-badge--deprecated,
+.mirai-ui-badge--danger {
+  background: var(--mirai-badge-danger-bg) !important;
+  color: var(--mirai-badge-danger-text) !important;
+}
+
+.mirai-status-badge--active,
+.mirai-ui-badge--success {
+  background: var(--mirai-badge-success-bg) !important;
+  color: var(--mirai-badge-success-text) !important;
+}
+
+.collection-list .table #heading-_select,
+.collection-list .table .cell-_select {
+  padding-left: 0.85rem !important;
+}
+
+.collection-list .page-controls {
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.5rem !important;
+  margin-inline: var(--mirai-list-gutter) !important;
+  width: auto !important;
+  padding: 0.75rem 0.25rem 0.25rem !important;
+  border-top: 0 !important;
+  gap: 0.7rem !important;
+}
+
+.collection-list .paginator {
+  align-items: center !important;
+}
+
+.collection-list .paginator__page {
+  width: 32px !important;
+  height: 32px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  line-height: 1 !important;
+  padding: 0 !important;
+  border: 1px solid #d5dde8 !important;
+  border-radius: 0.5rem !important;
+  background: #ffffff !important;
+  color: #334155 !important;
+  font-weight: 600 !important;
+  margin-right: 0.25rem !important;
+}
+
+.collection-list .paginator__page:hover {
+  background: #f8fafc !important;
+  border-color: #c6cfdb !important;
+}
+
+.collection-list .paginator__page--is-current {
+  background: rgba(215, 40, 51, 0.12) !important;
+  border-color: rgba(215, 40, 51, 0.42) !important;
+  color: #b91c1c !important;
+}
+
+.collection-list .page-controls__page-info {
+  font-size: 0.94rem !important;
+  color: #475569 !important;
+}
+
+.collection-list .per-page {
+  margin-left: 0.2rem !important;
+}
+
+.collection-list .per-page__base-button {
+  min-height: 32px !important;
+  padding: 0.35rem 0.55rem !important;
+  border: 1px solid #d5dde8 !important;
+  border-radius: 0.55rem !important;
+  background: #ffffff !important;
+  color: #334155 !important;
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  gap: 0.2rem !important;
+}
+
+.collection-list .list-header__title-actions .btn,
+.collection-list .list-header__title-actions .pill {
+  margin: 0 !important;
+}
+
+.collection-list .list-header__title-actions .btn--style-pill:not(#empty-trash-button) {
+  --bg-color: #eef2f7 !important;
+  --color: #334155 !important;
+  --hover-bg: #e2e8f0 !important;
+  --hover-color: #0f172a !important;
+  --btn-border: 1px solid #cfd8e3 !important;
+  --hover-btn-border: 1px solid #bac6d6 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 40px !important;
+  padding: 0.45rem 0.95rem !important;
+  border-radius: var(--mirai-radius-lg) !important;
+  font-size: 0.94rem !important;
+  font-weight: 700 !important;
+  line-height: 1.1 !important;
+}
+
+@media (max-width: 1200px) {
+  .collection-list {
+    --mirai-list-section-gap: 0.8rem;
+    --mirai-list-bottom-space: 1.3rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  /* Keep vertical alignment: disable default negative-offset table behavior */
+  .collection-list .table {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    left: 0 !important;
+    position: relative !important;
+    padding-left: 0 !important;
+    overflow-x: auto !important;
+  }
+
+  .collection-list .table::after {
+    content: none !important;
+    padding-right: 0 !important;
+  }
+
+  .collection-list .table table {
+    min-width: 720px !important;
+  }
+}
+
+.document-fields {
+  padding: 1.85rem !important;
+}
+
+.document-fields__main {
+  gap: 1.55rem !important;
+}
+
+/* Tools create view: explicit title + breadcrumbs */
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) {
+  --mirai-create-gutter: var(--mirai-admin-gutter);
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .gutter--left {
+  padding-left: var(--mirai-create-gutter) !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .gutter--right {
+  padding-right: var(--mirai-create-gutter) !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit) .collection-edit button[type='submit'],
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit) .collection-edit #action-save,
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit) .collection-edit .form-submit {
+  display: none !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .collection-edit {
+  display: flex !important;
+  justify-content: stretch !important;
+  margin-top: 1.15rem !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .collection-edit__form {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2rem !important;
+  max-width: none !important;
+  width: 100% !important;
+  /* padding-left: var(--mirai-create-gutter) !important; */
+  /* padding-right: var(--mirai-create-gutter) !important; */
+  box-sizing: border-box !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .header--doc .render-title {
+  display: none !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .doc-tabs {
+  display: none !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .header--doc {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  gap: 0.9rem !important;
+  padding-top: 0 !important;
+  margin-bottom: 0.75rem !important;
+  padding-left: var(--mirai-admin-gutter) !important;
+  padding-right: var(--mirai-admin-gutter) !important;
+  background: transparent !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .header--doc .doc-controls__wrapper,
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .header--doc .doc-controls {
+  width: 100% !important;
+  max-width: none !important;
+  flex: 1 1 100% !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .header--doc .doc-controls__wrapper {
+  padding: 0 !important;
+  margin-bottom: 2rem !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .header--doc .doc-controls {
+  display: block !important;
+  margin: 0 !important;
+  position: static !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .header--doc .mirai-doc-create-header {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.6rem !important;
+  width: 100% !important;
+  max-width: none !important;
+  flex: 0 0 auto !important;
+  order: 0 !important;
+  margin-top: 1.5rem !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .mirai-doc-create-header__actions,
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .mirai-doc-create-header__actions button[type='button'] {
+  display: inline-flex !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .mirai-doc-create-header__main {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 0.85rem !important;
+  flex-wrap: wrap !important;
+  width: 100% !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .mirai-doc-create-header__actions {
+  flex: 0 0 auto !important;
+  margin-left: auto !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .mirai-list-breadcrumbs {
+  width: 100% !important;
+  margin-bottom: 0.1rem !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .render-title {
+  display: none !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .view-description,
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .doc-controls__meta {
+  display: none !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .doc-controls__wrapper {
+  padding-top: 0.2rem !important;
+  padding-bottom: 0.2rem !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .doc-controls__content {
+  display: none !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .doc-controls .form-submit {
+  margin: 0 !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .doc-controls .form-submit .btn,
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .doc-controls #action-save.btn,
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .doc-controls #action-save.btn.btn--style-primary {
+  --bg-color: var(--mirai-red) !important;
+  --color: #ffffff !important;
+  --hover-bg: var(--mirai-red-dark) !important;
+  --hover-color: #ffffff !important;
+  --btn-border: 1px solid var(--mirai-red) !important;
+  --hover-btn-border: 1px solid var(--mirai-red-dark) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 40px !important;
+  padding: 0.45rem 0.95rem !important;
+  border-radius: var(--mirai-radius-lg) !important;
+  font-size: 0.94rem !important;
+  font-weight: 700 !important;
+  line-height: 1.1 !important;
+  text-align: center !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .doc-controls .form-submit .btn .btn__content,
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .doc-controls #action-save.btn .btn__content {
+  gap: 0 !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .document-fields {
+  padding-top: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-bottom: 1.85rem !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .document-fields {
+  padding-top: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-bottom: 1.85rem !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .mirai-doc-create-header {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 0.6rem !important;
+  width: 100% !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 1rem !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .mirai-doc-create-header .mirai-list-breadcrumbs {
+  margin-bottom: 0 !important;
+  margin-top: 0.15rem !important;
+  align-self: flex-start !important;
+  max-width: 100% !important;
+  overflow-wrap: anywhere !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .mirai-doc-create-header__main {
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: space-between !important;
+  gap: 0.85rem !important;
+  flex-wrap: wrap !important;
+  width: 100% !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .mirai-doc-create-header__title {
+  margin: 0 !important;
+  font-size: clamp(1.68rem, 2.2vw, 2.05rem) !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.01em !important;
+  color: #0f172a !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .mirai-doc-create-header__actions {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 0.55rem !important;
+  min-height: 40px !important;
+  align-self: flex-end !important;
+  margin-left: auto !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .mirai-doc-create-header__actions .form-submit {
+  margin: 0 !important;
+}
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .mirai-doc-create-header__actions .btn,
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .mirai-doc-create-header__actions #action-save.btn,
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .mirai-doc-create-header__actions #action-save.btn.btn--style-primary {
+  --bg-color: var(--mirai-red) !important;
+  --color: #ffffff !important;
+  --hover-bg: var(--mirai-red-dark) !important;
+  --hover-color: #ffffff !important;
+  --btn-border: 1px solid var(--mirai-red) !important;
+  --hover-btn-border: 1px solid var(--mirai-red-dark) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 40px !important;
+  padding: 0.45rem 0.95rem !important;
+  border-radius: var(--mirai-radius-lg) !important;
+  font-size: 0.94rem !important;
+  font-weight: 700 !important;
+  line-height: 1.1 !important;
+}
+
+.gutter--left {
+  padding-left: clamp(2rem, 4vw, 3.25rem) !important;
+}
+
+.gutter--right {
+  padding-right: clamp(2rem, 4vw, 3.25rem) !important;
+}
+
+.header--doc {
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: space-between !important;
+  flex-wrap: wrap !important;
+  gap: 0.8rem 1rem !important;
+  padding-left: clamp(2rem, 4vw, 3.25rem) !important;
+  padding-right: clamp(2rem, 4vw, 3.25rem) !important;
+  margin-bottom: 0.9rem !important;
+}
+
+.header--doc .doc-controls__wrapper {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.header--doc .doc-controls .form-submit {
+  margin: 0 !important;
+}
+
+.header--doc .doc-controls.mirai-doc-controls--relocated {
+  display: none !important;
+}
+
+/* Remove Payload white card backgrounds from doc-controls */
+.doc-controls::before,
+.doc-controls__controls-wrapper {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.header--doc {
+  background: transparent !important;
+}
+
+/* ============================================================
+   ADMIN WIDTH NORMALIZATION
+   Keep list and document views on the exact same visual grid.
+   ============================================================ */
+
+.collection-list > .mirai-list-breadcrumbs-wrap,
+.collection-list__header,
+.collection-list .list-header,
+.collection-list .list-controls,
+.collection-list .collection-list__tables,
+.collection-list .page-controls,
+.collection-list .no-results,
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .header--doc,
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .collection-edit__form {
+  box-sizing: border-box !important;
+}
+
+.collection-list > .mirai-list-breadcrumbs-wrap,
+.collection-list__header,
+.collection-list .list-header,
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .header--doc,
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .collection-edit__form {
+  /* padding-left: var(--mirai-admin-gutter) !important; */
+  /* padding-right: var(--mirai-admin-gutter) !important; */
+}
+
+.collection-list .list-controls,
+.collection-list .collection-list__tables,
+.collection-list .page-controls,
+.collection-list .no-results {
+  margin-left: var(--mirai-admin-gutter) !important;
+  margin-right: var(--mirai-admin-gutter) !important;
+}
+
+.collection-list .collection-list__tables {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.collection-list .list-controls {
+  width: auto !important;
+}
+
+
+:is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-media-create, body.mirai-users-create, body.mirai-categories-edit, body.mirai-media-edit, body.mirai-users-edit) .document-fields {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+body.mirai-tools-edit .mirai-doc-create-header__delete.btn {
+  --bg-color: #ffffff !important;
+  --color: var(--theme-error-500) !important;
+  --hover-bg: rgba(220, 38, 38, 0.08) !important;
+  --hover-color: var(--theme-error-500) !important;
+  --btn-border: 1px solid rgba(220, 38, 38, 0.32) !important;
+  --hover-btn-border: 1px solid rgba(220, 38, 38, 0.48) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 40px !important;
+  padding: 0.45rem 0.95rem !important;
+  border: var(--btn-border) !important;
+  border-radius: var(--mirai-radius-lg) !important;
+  background: var(--bg-color) !important;
+  color: var(--color) !important;
+  font-size: 0.94rem !important;
+  font-weight: 700 !important;
+  line-height: 1.1 !important;
+}
+
+body.mirai-tools-edit .mirai-doc-create-header__delete.btn:hover,
+body.mirai-tools-edit .mirai-doc-create-header__delete.btn:focus-visible {
+  border: var(--hover-btn-border) !important;
+  background: var(--hover-bg) !important;
+  color: var(--hover-color) !important;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c7cfda;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b2bccb;
+}
+
+/* Keep auth screens polished and readable */
+.template-minimal.login,
+.template-minimal.forgot-password,
+.template-minimal.reset-password,
+.template-minimal.create-first-user,
+.template-minimal.verify {
+  background: #eef2f6 !important;
+  color: #111827 !important;
+}
+
+.template-minimal.login .template-minimal__wrap,
+.template-minimal.forgot-password .template-minimal__wrap,
+.template-minimal.reset-password .template-minimal__wrap,
+.template-minimal.create-first-user .template-minimal__wrap,
+.template-minimal.verify .template-minimal__wrap {
+  background: #ffffff !important;
+  border: 1px solid #d8dee8 !important;
+  border-radius: 14px !important;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08) !important;
+  padding: 3rem 2.5rem !important;
+  width: 100% !important;
+  max-width: 480px !important;
+}
+
+.template-minimal.login .mirai-auth-brand__heart,
+.template-minimal.forgot-password .mirai-auth-brand__heart,
+.template-minimal.reset-password .mirai-auth-brand__heart,
+.template-minimal.create-first-user .mirai-auth-brand__heart,
+.template-minimal.verify .mirai-auth-brand__heart {
+  filter:
+    drop-shadow(0 0 2px rgba(215, 40, 51, 0.85))
+    drop-shadow(0 0 7px rgba(215, 40, 51, 0.58))
+    drop-shadow(0 0 15px rgba(215, 40, 51, 0.36));
+  animation: mirai-heart-neon-glow 2.5s ease-in-out infinite;
+}
+
+@keyframes mirai-heart-neon-glow {
+  0%,
+  100% {
+    transform: translateY(0);
+    filter:
+      drop-shadow(0 0 2px rgba(215, 40, 51, 0.82))
+      drop-shadow(0 0 8px rgba(215, 40, 51, 0.54))
+      drop-shadow(0 0 16px rgba(215, 40, 51, 0.34));
+  }
+
+  50% {
+    transform: translateY(-1px);
+    filter:
+      drop-shadow(0 0 3px rgba(215, 40, 51, 0.95))
+      drop-shadow(0 0 10px rgba(215, 40, 51, 0.68))
+      drop-shadow(0 0 22px rgba(215, 40, 51, 0.44));
+  }
+}
+
+.template-minimal.login .graphic-logo path,
+.template-minimal.forgot-password .graphic-logo path,
+.template-minimal.reset-password .graphic-logo path,
+.template-minimal.create-first-user .graphic-logo path,
+.template-minimal.verify .graphic-logo path {
+  fill: #1f2937 !important;
+}
+
+.template-minimal.login :where(button[type='submit'], .form-submit .btn, .btn--style-primary),
+.template-minimal.forgot-password :where(button[type='submit'], .form-submit .btn, .btn--style-primary),
+.template-minimal.reset-password :where(button[type='submit'], .form-submit .btn, .btn--style-primary),
+.template-minimal.create-first-user :where(button[type='submit'], .form-submit .btn, .btn--style-primary),
+.template-minimal.verify :where(button[type='submit'], .form-submit .btn, .btn--style-primary) {
+  width: 100% !important;
+  min-height: 56px !important;
+  padding: 0.85rem 1.35rem !important;
+  border-radius: 0.78rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1.02rem !important;
+  font-weight: 700 !important;
+}
+
+.template-minimal.login form a[href*='/forgot'] {
+  display: inline-flex !important;
+  align-items: center !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.template-minimal.login .login__form .form-submit {
+  margin-top: 1.05rem !important;
+}
+
+.template-minimal.login .mirai-login-remember {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.72rem !important;
+  margin: 0.95rem 0 0.35rem !important;
+  color: #1f2937 !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  user-select: none !important;
+}
+
+.template-minimal.login .mirai-login-remember__checkbox {
+  width: 18px !important;
+  height: 18px !important;
+  margin: 0 !important;
+  accent-color: var(--mirai-red) !important;
+  cursor: pointer !important;
+}
+
+.template-minimal.login .mirai-login-remember__label {
+  line-height: 1.25 !important;
+}
+
+.template-minimal.login .mirai-login-landing-link {
+  margin: 0.85rem 0 0 !important;
+}
+
+.template-minimal.login .mirai-login-landing-link__button {
+  min-height: 48px !important;
+  padding: 0.8rem 1rem !important;
+  border: 1px solid #d8dee8 !important;
+  border-radius: 0.78rem !important;
+  background: #f8fafc !important;
+  color: #1f2937 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  font-size: 0.98rem !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  transition:
+    background-color 0.16s ease,
+    border-color 0.16s ease,
+    color 0.16s ease,
+    box-shadow 0.16s ease !important;
+}
+
+.template-minimal.login .mirai-login-landing-link__button:hover {
+  background: #ffffff !important;
+  border-color: #bac6d6 !important;
+  color: #111827 !important;
+}
+
+.template-minimal.login .mirai-login-landing-link__button:focus-visible {
+  outline: none !important;
+  border-color: rgba(215, 40, 51, 0.4) !important;
+  box-shadow: 0 0 0 3px rgba(215, 40, 51, 0.18) !important;
+}
+
+.template-minimal.login .mirai-password-field-wrap {
+  position: relative !important;
+}
+
+.template-minimal.login .mirai-password-input {
+  padding-right: 3rem !important;
+}
+
+.template-minimal.login .mirai-password-toggle {
+  position: absolute !important;
+  top: 50% !important;
+  right: 0.65rem !important;
+  transform: translateY(-50%) !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 0.55rem !important;
+  border: 1px solid transparent !important;
+  background: transparent !important;
+  color: #64748b !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+  transition: color 0.16s ease, background-color 0.16s ease, border-color 0.16s ease !important;
+}
+
+.template-minimal.login .mirai-password-toggle:hover {
+  color: #334155 !important;
+  background: rgba(15, 23, 42, 0.06) !important;
+}
+
+.template-minimal.login .mirai-password-toggle:focus-visible {
+  outline: none !important;
+  border-color: rgba(215, 40, 51, 0.4) !important;
+  box-shadow: 0 0 0 3px rgba(215, 40, 51, 0.18) !important;
+}
+
+.template-minimal.login .mirai-password-toggle svg {
+  width: 18px !important;
+  height: 18px !important;
+  fill: none !important;
+  stroke: currentColor !important;
+  stroke-width: 1.8 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+
+@media (max-width: 768px) {
+  .gutter--left {
+    padding-left: 1rem !important;
+  }
+
+  .gutter--right {
+    padding-right: 1rem !important;
+  }
+
+  .header--doc {
+    align-items: flex-start !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  :is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .mirai-doc-create-header {
+    margin-top: 1rem !important;
+    margin-bottom: 0.7rem !important;
+    gap: 0.55rem !important;
+  }
+
+  :is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .mirai-doc-create-header__title {
+    font-size: 1.5rem !important;
+  }
+
+  :is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .mirai-doc-create-header__main {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+  }
+
+  :is(body.mirai-tools-create, body.mirai-tools-edit, body.mirai-categories-create, body.mirai-categories-edit, body.mirai-media-create, body.mirai-media-edit, body.mirai-users-create, body.mirai-users-edit) .mirai-doc-create-header__actions {
+    margin-left: 0 !important;
+    align-self: flex-start !important;
+  }
+
+  .step-nav__home {
+    min-width: 98px !important;
+    height: 28px !important;
+  }
+
+  .mirai-admin-icon__heart {
+    height: 22px !important;
+  }
+
+  .mirai-admin-icon__logo {
+    height: 13px !important;
+  }
+
+  .mirai-admin-logo {
+    height: 38px !important;
+  }
+
+  .mirai-auth-brand__heart {
+    height: 54px !important;
+  }
+
+  .mirai-dashboard-metrics {
+    width: 100% !important;
+    grid-template-columns: 1fr !important;
+    gap: 0.7rem !important;
+  }
+
+  .mirai-dashboard-actions {
+    max-width: none !important;
+    width: 100% !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .mirai-dashboard-actions__logout.btn {
+    width: 100% !important;
+  }
+
+  .mirai-admin-dashboard {
+    width: calc(100% - (2 * var(--mirai-admin-gutter))) !important;
+    margin: 0.7rem auto 1.75rem !important;
+    padding: 0 !important;
+  }
+
+  .mirai-admin-dashboard__welcome {
+    align-items: flex-start !important;
+    padding: 1.1rem !important;
+  }
+
+  .mirai-admin-dashboard__welcome-mark {
+    width: 46px !important;
+    height: 46px !important;
+  }
+
+  .mirai-admin-dashboard__kpis,
+  .mirai-admin-dashboard__grid,
+  .mirai-admin-dashboard__quick-actions {
+    grid-template-columns: 1fr !important;
+  }
+
+  .mirai-admin-dashboard__kpi-card {
+    min-height: 132px !important;
+  }
+
+  .mirai-admin-dashboard__panel-header {
+    flex-direction: column !important;
+    gap: 0.55rem !important;
+  }
+
+  .mirai-admin-dashboard__legend {
+    flex-wrap: wrap !important;
+  }
+
+  .mirai-admin-dashboard__panel--chart {
+    min-height: 340px !important;
+  }
+
+  .mirai-admin-dashboard__tool-row {
+    grid-template-columns: auto minmax(0, 1fr) !important;
+  }
+
+  .mirai-admin-dashboard__tool-clicks {
+    grid-column: 2 !important;
+  }
+
+  .collection-list {
+    --mirai-list-section-gap: 0.7rem;
+    --mirai-list-bottom-space: 1.05rem;
+  }
+
+  .collection-list > .mirai-list-breadcrumbs-wrap {
+    margin-top: 0.7rem !important;
+    margin-bottom: 0.15rem !important;
+  }
+
+  .collection-list .list-controls {
+    padding: 0.65rem !important;
+  }
+
+  .collection-list .collection-list__tables {
+    padding-inline: 0 !important;
+  }
+
+  .collection-list .search-bar {
+    row-gap: 0.5rem !important;
+    background: transparent !important;
+    border: 0 !important;
+  }
+
+  .collection-list .search-bar .search-filter {
+    background: #f8fafc !important;
+    border: 1px solid #d3dae4 !important;
+    border-radius: 0.75rem !important;
+  }
+
+  .collection-list .search-bar__actions {
+    padding: 0 !important;
+  }
+
+  .collection-list .search-bar__actions .pill {
+    flex: 1 !important;
+    justify-content: space-between !important;
+  }
+
+  .collection-list .page-controls {
+    margin-inline: 0.6rem !important;
+    flex-wrap: wrap !important;
+    gap: 0.55rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+
+  .collection-list .page-controls__page-info {
+    margin-left: 0 !important;
+    width: 100% !important;
+    order: 2 !important;
+  }
+
+  .collection-list .per-page {
+    order: 3 !important;
+  }
+
+  .collection-list .table table {
+    min-width: 640px !important;
+  }
+}
+
+/* ── Confirmation Modal ("Leave without saving") ─────────────── */
+
+/* Secondary / outline button — match design system border + hover */
+.btn--style-secondary {
+  --color: var(--mirai-text-primary) !important;
+  --bg-color: var(--mirai-surface-muted) !important;
+  --btn-border: 1px solid var(--mirai-border-default) !important;
+  --hover-color: var(--mirai-text-primary) !important;
+  --hover-bg: #edf0f4 !important;
+  --hover-btn-border: 1px solid var(--mirai-border-strong) !important;
+}
+
+/* Modal backdrop: use page-bg tint instead of pure white */
+.confirmation-modal::before {
+  background: var(--mirai-page-bg) !important;
+  opacity: 0.82 !important;
+}
+
+/* Content card */
+.confirmation-modal__wrapper {
+  background: var(--mirai-surface-base) !important;
+  border-radius: var(--mirai-radius-2xl) !important;
+  border: 1px solid var(--mirai-border-panel) !important;
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.14) !important;
+  padding: 2rem 2.5rem !important;
+  gap: 1.25rem !important;
+}
+
+.confirmation-modal__content h1 {
+  font-size: 1.35rem !important;
+  font-weight: 700 !important;
+  color: var(--mirai-text-primary) !important;
+  letter-spacing: -0.01em !important;
+}
+
+.confirmation-modal__content p {
+  font-size: 0.95rem !important;
+  color: var(--mirai-text-secondary) !important;
+  line-height: 1.55 !important;
+}
+
+.confirmation-modal__controls {
+  gap: 0.65rem !important;
+  margin-top: 0.25rem !important;
+}
+
+.confirmation-modal__controls .btn {
+  margin: 0 !important;
+  min-height: 40px !important;
+  padding: 0.45rem 1.1rem !important;
+  font-size: 0.94rem !important;
+  font-weight: 600 !important;
+  border-radius: var(--mirai-radius-lg) !important;
+}
+
+/* "Leave anyway" — primary destructive button */
+.confirmation-modal__controls #confirm-action.btn {
+  background: var(--mirai-red) !important;
+  border-color: var(--mirai-red) !important;
+  color: #ffffff !important;
+}
+
+.confirmation-modal__controls #confirm-action.btn:hover {
+  background: var(--mirai-red-dark) !important;
+  border-color: var(--mirai-red-dark) !important;
+}
+
+/* ============================================================
+   MIRAI SIDEBAR NAV
+   ============================================================ */
+
+.mirai-sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 2.8rem 0.8rem 1.5rem;
+  box-sizing: border-box;
+  gap: 0;
+}
+
+/* Section label above the nav items */
+.mirai-sidebar__section {
+  padding: 0 0.5rem 0.7rem;
+  margin-bottom: 0.25rem;
+  border-bottom: 1px solid var(--mirai-border-soft);
+}
+
+.mirai-sidebar__section-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mirai-text-muted);
+  user-select: none;
+}
+
+.mirai-sidebar__list {
+  list-style: none;
+  padding: 0.8rem 0 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  flex: 1;
+}
+
+.mirai-sidebar__item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.72rem 0.95rem;
+  border-radius: var(--mirai-radius-md);
+  color: var(--mirai-text-secondary);
+  text-decoration: none !important;
+  font-size: 1.02rem;
+  font-weight: 500;
+  letter-spacing: 0.003em;
+  line-height: 1.35;
+  transition: background 0.13s ease, color 0.13s ease;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.mirai-sidebar__item:hover {
+  background: rgba(215, 40, 51, 0.07);
+  color: var(--mirai-red);
+}
+
+.mirai-sidebar__item:focus-visible {
+  outline: none;
+  box-shadow: var(--mirai-focus-ring);
+  border-radius: var(--mirai-radius-md);
+}
+
+.mirai-sidebar__item--active {
+  background: rgba(215, 40, 51, 0.08) !important;
+  color: var(--mirai-red) !important;
+  font-weight: 600 !important;
+}
+
+.mirai-sidebar__item--active:hover {
+  background: rgba(215, 40, 51, 0.11) !important;
+}
+
+.mirai-sidebar__icon {
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+.mirai-sidebar__item--active .mirai-sidebar__icon,
+.mirai-sidebar__item:hover .mirai-sidebar__icon {
+  opacity: 1;
+}
+
+.mirai-sidebar__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Footer: always pinned to the bottom */
+.mirai-sidebar__footer {
+  padding-top: 0.7rem;
+  margin-top: 0.75rem;
+  border-top: 1px solid var(--mirai-border-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mirai-sidebar__tagline {
+  padding: 0 0.3rem 0.2rem;
+  font-size: 0.72rem;
+  line-height: 1.55;
+  color: var(--mirai-text-muted);
+  word-break: break-word;
+}
+
+.mirai-sidebar__tagline-icon {
+  display: inline;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+  color: var(--mirai-text-muted);
+}
+
+.mirai-sidebar__tagline-link {
+  color: var(--mirai-text-secondary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.mirai-sidebar__tagline-link:hover {
+  color: var(--mirai-red);
+}
+
+.mirai-sidebar__item--logout {
+  color: var(--mirai-text-muted) !important;
+  font-weight: 400 !important;
+}
+
+.mirai-sidebar__item--logout:hover {
+  background: rgba(215, 40, 51, 0.06) !important;
+  color: var(--mirai-red) !important;
+}
+
+/* ── Tablet / mobile: icon-only sidebar ─────────────────── */
+@media (max-width: 768px) {
+  .mirai-sidebar {
+    padding: 1rem 0.35rem 1rem;
+    align-items: center;
+  }
+
+  .mirai-sidebar__section {
+    display: none;
+  }
+
+  .mirai-sidebar__list {
+    padding-top: 0.5rem;
+    width: 100%;
+    gap: 0.25rem;
+  }
+
+  .mirai-sidebar__item {
+    justify-content: center;
+    padding: 0.65rem 0.4rem;
+    gap: 0;
+    border-radius: var(--mirai-radius-md);
+  }
+
+  .mirai-sidebar__label {
+    display: none;
+  }
+
+  .mirai-sidebar__footer {
+    width: 100%;
+    margin-top: 0.6rem;
+  }
+
+  .mirai-sidebar__tagline {
+    display: none;
+  }
+}
+
+body.mirai-tools-edit .field-type.number:has(input[name='order']) .field-description,
+body.mirai-tools-edit .field-type.number:has(input[name='order']) .field-description__content {
+  display: none !important;
+}
+
+/* ============================================================
+   API DOCS VIEW
+   ============================================================ */
+
+.mirai-api-view {
+  width: calc(100% - (2 * var(--mirai-admin-gutter))) !important;
+  max-width: none !important;
+  margin: 1.15rem auto 2.8rem !important;
+  padding: 0 !important;
+  color: var(--mirai-text-primary) !important;
+}
+
+.mirai-api-view > .mirai-list-breadcrumbs {
+  margin-bottom: 1.1rem !important;
+}
+
+.mirai-api-view__header {
+  margin-bottom: 1.4rem !important;
+}
+
+.mirai-api-view__header h1 {
+  margin: 0 0 0.3rem !important;
+}
+
+.mirai-api-view__header p {
+  margin: 0 !important;
+  color: var(--mirai-text-secondary) !important;
+  font-size: 1rem !important;
+}
+
+.mirai-api-view__panel {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1rem !important;
+}
+
+.mirai-api-view__endpoints {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.4rem !important;
+}
+
+.mirai-api-view__endpoint {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.7rem !important;
+  width: 100% !important;
+  padding: 0.62rem 0.9rem !important;
+  border: 1px solid var(--mirai-border-default) !important;
+  border-radius: var(--mirai-radius-md) !important;
+  background: var(--mirai-surface-soft) !important;
+  cursor: pointer !important;
+  text-align: left !important;
+  transition: border-color 0.15s, background 0.15s !important;
+  font-family: var(--mirai-font-sans) !important;
+  font-size: 0.9rem !important;
+}
+
+.mirai-api-view__endpoint:hover {
+  border-color: var(--mirai-border-strong) !important;
+  background: var(--mirai-surface-muted) !important;
+}
+
+.mirai-api-view__endpoint--active {
+  border-color: var(--mirai-red) !important;
+  background: rgba(215, 40, 51, 0.04) !important;
+}
+
+.mirai-api-view__method {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 0.18rem 0.52rem !important;
+  border-radius: var(--mirai-radius-sm) !important;
+  background: rgba(16, 185, 129, 0.12) !important;
+  color: #10b981 !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.04em !important;
+  flex-shrink: 0 !important;
+}
+
+.mirai-api-view__path {
+  font-family: 'Menlo', 'Consolas', monospace !important;
+  font-size: 0.84rem !important;
+  color: var(--mirai-text-primary) !important;
+  flex-shrink: 0 !important;
+}
+
+.mirai-api-view__desc {
+  color: var(--mirai-text-muted) !important;
+  font-size: 0.84rem !important;
+  margin-left: auto !important;
+}
+
+.mirai-api-view__code-block {
+  border: 1px solid var(--mirai-border-default) !important;
+  border-radius: var(--mirai-radius-lg) !important;
+  overflow: hidden !important;
+}
+
+.mirai-api-view__code-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0.6rem 1rem !important;
+  border-bottom: 1px solid var(--mirai-border-default) !important;
+  background: var(--mirai-surface-soft) !important;
+}
+
+.mirai-api-view__active-path {
+  font-family: 'Menlo', 'Consolas', monospace !important;
+  font-size: 0.82rem !important;
+  color: var(--mirai-text-secondary) !important;
+}
+
+.mirai-api-view__copy-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.35rem !important;
+  padding: 0.3rem 0.7rem !important;
+  border: 1px solid var(--mirai-border-default) !important;
+  border-radius: var(--mirai-radius-sm) !important;
+  background: var(--mirai-surface-base) !important;
+  color: var(--mirai-text-secondary) !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  font-family: var(--mirai-font-sans) !important;
+  cursor: pointer !important;
+  transition: border-color 0.15s, color 0.15s !important;
+}
+
+.mirai-api-view__copy-btn:hover:not(:disabled) {
+  border-color: var(--mirai-red) !important;
+  color: var(--mirai-red) !important;
+}
+
+.mirai-api-view__copy-btn:disabled {
+  opacity: 0.45 !important;
+  cursor: default !important;
+}
+
+.mirai-api-view__code {
+  display: block !important;
+  margin: 0 !important;
+  padding: 1rem 1.1rem !important;
+  background: #0f172a !important;
+  color: #e2e8f0 !important;
+  font-family: 'Menlo', 'Consolas', monospace !important;
+  font-size: 0.78rem !important;
+  line-height: 1.65 !important;
+  overflow-x: auto !important;
+  max-height: 480px !important;
+  overflow-y: auto !important;
+  white-space: pre !important;
+}
+
+/* ============================================================
+   MEDIA UPLOAD FIELD
+   ============================================================ */
+
+.file-field .dropzone {
+  padding-block: 1.5rem !important;
+  padding-inline: 1.5rem !important;
+  border: 1.5px dashed #cfd6df !important;
+  border-radius: 0.8rem !important;
+  background: #f8fafc !important;
+  transition: border-color 0.15s ease, background 0.15s ease !important;
+}
+
+.file-field .dropzone:hover {
+  border-color: rgba(215, 40, 51, 0.4) !important;
+  background: #fdf5f5 !important;
+}
+
+.file-field__dropzoneContent {
+  gap: 0.85rem !important;
+  align-items: center !important;
+}
+
+.file-field__add-file-wrap,
+.file-field__upload-actions {
+  gap: 0.75rem !important;
+  align-items: center !important;
+}
+
+.file-field__dropzoneButtons {
+  gap: 0.65rem !important;
+  align-items: center !important;
+}
+
+/* Style "Select a file" and "Paste URL" buttons to match Mirai design */
+.file-field__dropzoneButtons .btn,
+.file-field__dropzoneButtons button {
+  height: 38px !important;
+  padding: 0 1.1rem !important;
+  border-radius: 0.6rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  border: 1.5px solid #cfd6df !important;
+  background: #ffffff !important;
+  color: #334155 !important;
+  cursor: pointer !important;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.4rem !important;
+}
+
+.file-field__dropzoneButtons .btn:hover,
+.file-field__dropzoneButtons button:hover {
+  border-color: rgba(215, 40, 51, 0.45) !important;
+  background: #fff5f5 !important;
+  color: #d72833 !important;
+}
+
+.file-field__orText {
+  font-size: 0.82rem !important;
+  color: #94a3b8 !important;
+  font-weight: 400 !important;
+  padding: 0 0.15rem !important;
+}
+
+.file-field__dragAndDropText {
+  font-size: 0.85rem !important;
+  color: #94a3b8 !important;
+  padding-right: 0.5rem !important;
+}
+
+.file-field__upload-actions button,
+.file-field__add-file-wrap button,
+button.file-field__add-file,
+.file-field__add-file {
+  height: 40px !important;
+  padding: 0 1.2rem !important;
+  border-radius: 0.6rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  font-family: inherit !important;
+  border: 1.5px solid #cfd6df !important;
+  background: #ffffff !important;
+  color: #334155 !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  line-height: 1 !important;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease !important;
+}
+
+.file-field__upload-actions button:hover,
+.file-field__add-file-wrap button:hover,
+button.file-field__add-file:hover,
+.file-field__add-file:hover {
+  border-color: rgba(215, 40, 51, 0.45) !important;
+  background: #fff5f5 !important;
+  color: #d72833 !important;
+}
+
