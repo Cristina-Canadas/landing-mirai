@@ -13,6 +13,7 @@
     "lint": "next lint",
     "seed": "npx tsx src/scripts/seed.ts",
     "seed:categories": "npx tsx src/scripts/seed-categories.ts",
+    "seed:all": "npx tsx src/scripts/seed.ts",
     "payload": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload",
     "security:audit": "node src/scripts/security-audit.mjs",
     "security:check": "npm audit --audit-level=moderate",
