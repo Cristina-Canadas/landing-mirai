@@ -1,7 +1,7 @@
 import { type NextRequest, NextResponse } from 'next/server'
 import crypto from 'crypto'
 
-export function computeGateToken(): string {
+function computeGateToken(): string {
   const email = (process.env['GATE_EMAIL'] ?? '').toLowerCase()
   const password = process.env['GATE_PASSWORD'] ?? ''
   const secret = process.env['PAYLOAD_SECRET'] ?? 'gate-dev-fallback'
