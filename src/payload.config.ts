@@ -71,6 +71,7 @@ export default buildConfig({
   db: sqliteAdapter({
     client: {
       url: databaseURI,
+      authToken: process.env.DATABASE_AUTH_TOKEN,
     },
   }),
 
