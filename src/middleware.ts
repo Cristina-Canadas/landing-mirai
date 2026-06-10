@@ -1,49 +1,51 @@
 import { type NextRequest, NextResponse } from 'next/server'
 
-/**
- * Security Headers Middleware
- * Aplicadas a todas las respuestas HTTP para proteger la aplicación
- * contra ataques comunes (XSS, Clickjacking, MIME sniffing, etc.)
- */
+const GATE_COOKIE = 'mirai_gate'
+const VALID_TOKEN_RE = /^[a-f0-9]{64}$/
+
+// Paths that bypass the gate entirely
+const GATE_SKIP_PREFIXES = ['/gate', '/admin', '/_next', '/api/gate']
+const GATE_SKIP_EXACT = ['/favicon.ico', '/favicon.svg', '/mirai.png']
+
+function isGateEnabled(): boolean {
+  return Boolean(process.env['GATE_EMAIL'] && process.env['GATE_PASSWORD'])
+}
+
+function hasValidGateCookie(request: NextRequest): boolean {
+  const token = request.cookies.get(GATE_COOKIE)?.value ?? ''
+  return VALID_TOKEN_RE.test(token)
+}
+
 export function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl
+
+  // --- Gate check ---
+  if (isGateEnabled()) {
+    const skip =
+      GATE_SKIP_EXACT.includes(pathname) ||
+      GATE_SKIP_PREFIXES.some((p) => pathname.startsWith(p))
+
+    if (!skip && !hasValidGateCookie(request)) {
+      const url = request.nextUrl.clone()
+      url.pathname = '/gate'
+      url.searchParams.set('from', pathname)
+      return NextResponse.redirect(url)
+    }
+  }
+
+  // --- Security headers ---
   const response = NextResponse.next()
 
-  // 1. Strict-Transport-Security (HSTS)
-  // Obliga al navegador a usar HTTPS en las próximas 1 año
-  response.headers.set(
-    'Strict-Transport-Security',
-    'max-age=31536000; includeSubDomains'
-  )
-
-  // 2. X-Content-Type-Options
-  // Previene MIME sniffing (navegador no intenta detectar tipo de contenido)
+  response.headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains')
   response.headers.set('X-Content-Type-Options', 'nosniff')
-
-  // 3. X-Frame-Options
-  // Previene clickjacking (impide que la página se cargue en un iframe)
   response.headers.set('X-Frame-Options', 'DENY')
-
-  // 4. X-XSS-Protection
-  // Habilita protección XSS en navegadores antiguos
   response.headers.set('X-XSS-Protection', '1; mode=block')
-
-  // 5. Referrer-Policy
-  // Controla qué información se envía en el header Referrer
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin')
+  response.headers.set('Permissions-Policy', 'geolocation=(), microphone=(), camera=(), payment=()')
 
-  // 6. Permissions-Policy (antes Feature-Policy)
-  // Controla qué features del navegador puede usar la página
-  response.headers.set(
-    'Permissions-Policy',
-    'geolocation=(), microphone=(), camera=(), payment=()'
-  )
-
-  // 7. Content-Security-Policy (CSP)
-  // Política restrictiva para prevenir XSS y inyecciones de contenido
-  // Personalizada para Next.js y Payload CMS
   const cspHeader = [
     "default-src 'self'",
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval'", // Next.js necesita unsafe-eval
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
     "style-src 'self' 'unsafe-inline'",
     "img-src 'self' data: https:",
     "font-src 'self' data:",
@@ -58,16 +60,6 @@ export function middleware(request: NextRequest) {
   return response
 }
 
-// Aplica el middleware a todas las rutas excepto recursos estáticos
 export const config = {
-  matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     */
-    '/((?!api|_next/static|_next/image|favicon.ico).*)',
-  ],
+  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
 }
