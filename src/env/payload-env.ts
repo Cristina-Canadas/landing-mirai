@@ -49,7 +49,7 @@ function shouldRequireProductionSecrets(): boolean {
 }
 
 export function resolvePayloadSecret(): string {
-  const payloadSecret = process.env.PAYLOAD_SECRET?.trim()
+  const payloadSecret = process.env['PAYLOAD_SECRET']?.trim()
   const strictSecrets = shouldRequireProductionSecrets()
 
   if (!payloadSecret) {
@@ -79,7 +79,7 @@ export function resolvePayloadSecret(): string {
 }
 
 export function resolveDatabaseURI(defaultLocalDatabaseURI: string): string {
-  const databaseURI = process.env.DATABASE_URI?.trim()
+  const databaseURI = process.env['DATABASE_URI']?.trim()
   const strictSecrets = shouldRequireProductionSecrets()
 
   if (!databaseURI) {
