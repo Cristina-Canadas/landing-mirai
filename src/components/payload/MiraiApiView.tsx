@@ -8,7 +8,6 @@ export function MiraiApiView({
   params,
   payload,
   permissions,
-  req,
   searchParams,
   user,
   visibleEntities,
@@ -20,7 +19,6 @@ export function MiraiApiView({
       params={params}
       payload={payload}
       permissions={permissions}
-      req={req}
       searchParams={searchParams}
       user={user}
       visibleEntities={visibleEntities ?? { collections: [], globals: [] }}
