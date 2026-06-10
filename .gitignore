@@ -17,11 +17,9 @@ pnpm-debug.log*
 .env.production
 .env.local
 
-# database (local SQLite only — production uses Turso/libsql)
-payload.db
+# database WAL temp files (payload.db tracked as backup)
 payload.db-shm
 payload.db-wal
-*.db
 
 # TypeScript build info
 tsconfig.tsbuildinfo
