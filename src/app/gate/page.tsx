@@ -18,7 +18,6 @@ export default function GatePage() {
             priority
           />
         </div>
-        <h1 className={styles.brand}>mirai</h1>
 
         <Suspense fallback={<div style={{ height: 260 }} />}>
           <GateForm />
