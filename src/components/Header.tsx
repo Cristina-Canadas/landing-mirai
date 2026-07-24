@@ -64,8 +64,8 @@ export function Header({
   return (
     <header className={`topbar${scrolled ? ' topbar--scrolled' : ''}`}>
       <Link href={logoHref} className="topbar-logo" aria-label="Mirai Suite">
-        <Image src={heart} alt="" height={56} className="topbar-heart" priority />
-        <Image src={logo} alt="Mirai" height={15} className="topbar-brand" priority />
+        <Image src={heart} alt="" height={56} quality={90} className="topbar-heart" priority />
+        <Image src={logo} alt="Mirai" height={15} quality={90} className="topbar-brand" priority />
       </Link>
 
       {showSearch && (

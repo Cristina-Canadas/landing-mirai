@@ -177,6 +177,7 @@ export function ToolsGrid({
               src={logo}
               alt="Mirai"
               height={52}
+              quality={90}
               className="hero-logo"
               priority
             />
@@ -306,7 +307,7 @@ export function ToolsGrid({
       <footer className="footer">
         <div className="container footer-content">
           <Link href="/" aria-label="Mirai Suite">
-            <Image src={logo} alt="Mirai" height={32} className="footer-logo" />
+            <Image src={logo} alt="Mirai" height={32} quality={90} className="footer-logo" />
           </Link>
           <p>
             2026 Built by the{' '}

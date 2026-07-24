@@ -20,37 +20,44 @@
 }
 
 .logoWrap {
-  position: relative;
-  width: 80px;
-  height: 80px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 12px;
+  gap: 6px;
+  margin-bottom: 28px;
 }
 
-.logoWrap::before {
-  content: '';
-  position: absolute;
-  inset: -8px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(199, 24, 39, 0.18) 0%, transparent 70%);
+.heart {
+  height: 68px;
+  width: auto;
+  object-fit: contain;
+  animation: heartNeonGlow 2.5s ease-in-out infinite;
 }
 
 .logo {
-  width: 64px;
-  height: 64px;
+  height: 48px;
+  width: auto;
   object-fit: contain;
-  position: relative;
-  filter: drop-shadow(0 0 12px rgba(199, 24, 39, 0.45));
 }
 
-.brand {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #c71827;
-  margin: 0 0 32px;
-  letter-spacing: -0.5px;
+@keyframes heartNeonGlow {
+  0%,
+  100% {
+    transform: translateY(0);
+    filter:
+      drop-shadow(0 0 2px rgba(215, 40, 51, 0.82))
+      drop-shadow(0 0 8px rgba(215, 40, 51, 0.54))
+      drop-shadow(0 0 16px rgba(215, 40, 51, 0.34));
+  }
+
+  50% {
+    transform: translateY(-1px);
+    filter:
+      drop-shadow(0 0 3px rgba(215, 40, 51, 0.95))
+      drop-shadow(0 0 10px rgba(215, 40, 51, 0.68))
+      drop-shadow(0 0 22px rgba(215, 40, 51, 0.44));
+  }
 }
 
 .form {
